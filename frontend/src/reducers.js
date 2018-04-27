@@ -10,6 +10,7 @@ export class Content {
         this.id = id;
         this.timestamp = timestamp;
         this.body = body;
+        this.author = author;
         this.voteScore = voteScore;
         this.deleted = deleted;
     }
@@ -41,4 +42,33 @@ export class Comment extends Content {
         this.parentId = parentId;
         this.parentDeleted = parentDeleted;
     }
+}
+
+export class ContentFactory {
+
+    static initVoteScore () {
+        return 0;
+    }
+
+    static initDeleted(){
+        return false;
+    }
+
+    static genUniqueID() {
+        return '111111111';
+    }
+
+    static genTimeStamp() {
+        return '123456789';
+    }
+
+    static makeNewPost(title, body, author, category) {
+        return new Post(this.genUniqueID(), this.genTimeStamp(), title, body, author, category, this.initVoteScore(), this.initDeleted(), 0);
+    }
+
+
+    static makeNewComment(parentId, body, author) {
+        return new Comment(this.genUniqueID(), parentId, this.genTimeStamp(), body, author, this.initVoteScore(), this.initDeleted(), false);
+    }
+
 }
