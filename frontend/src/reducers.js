@@ -1,3 +1,5 @@
+import RandomString from "randomstring";
+
 export class Category {
     constructor(name, path){
         this.name = name;
@@ -55,7 +57,7 @@ export class ContentFactory {
     }
 
     static genUniqueID() {
-        return '111111111';
+        return RandomString.generate(22);
     }
 
     static genTimeStamp() {
