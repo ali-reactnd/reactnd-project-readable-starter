@@ -59,7 +59,7 @@ export class ContentFactory {
     }
 
     static genTimeStamp() {
-        return '123456789';
+        return Date.now();
     }
 
     static makeNewPost(title, body, author, category) {
