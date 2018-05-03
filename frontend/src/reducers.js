@@ -1,76 +1,20 @@
-import RandomString from "randomstring";
+export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
+export const FETCH_POSTS = 'FETCH_POSTS';
+export const FETCH_COMMENTS = 'FETCH_COMMENTS';
 
-export class Category {
-    constructor(name, path){
-        this.name = name;
-        this.path = path;
-    }
-}
+export const ADD_POST = 'ADD_POST';
+export const UPDATE_POST = 'UPDATE_POST';
+export const DELETE_POST = 'DELETE_POST';
+export const UPDATE_VOTE_POST = 'UPDATE_VOTE_POST';
 
-export class Content {
-    constructor(id, timestamp, body, author, voteScore, deleted){
-        this.id = id;
-        this.timestamp = timestamp;
-        this.body = body;
-        this.author = author;
-        this.voteScore = voteScore;
-        this.deleted = deleted;
-    }
-
-    edit(body, author){
-        this.body = body;
-        this.author = author;
-    }
-
-    remove(){this.deleted = true;}
-
-    upVote(){this.voteScore += 1;}
-
-    downVote(){this.voteScore -= 1;}
-}
-
-export class Post extends Content {
-    constructor(id, timestamp, title, body, author, category, voteScore, deleted, commentCount){
-        super(id, timestamp, body, author, voteScore, deleted);
-        this.title = title;
-        this.category = category;
-        this.commentCount = commentCount;
-    }
-}
-
-export class Comment extends Content {
-    constructor(id, parentId, timestamp, body, author, voteScore, deleted, parentDeleted){
-        super(id, timestamp, body, author, voteScore, deleted);
-        this.parentId = parentId;
-        this.parentDeleted = parentDeleted;
-    }
-}
-
-export class ContentFactory {
-
-    static initVoteScore () {
-        return 0;
-    }
-
-    static initDeleted(){
-        return false;
-    }
-
-    static genUniqueID() {
-        return RandomString.generate(22);
-    }
-
-    static genTimeStamp() {
-        return Date.now();
-    }
-
-    static makeNewPost(title, body, author, category) {
-        return new Post(this.genUniqueID(), this.genTimeStamp(), title, body, author, category, this.initVoteScore(), this.initDeleted(), 0);
-    }
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const UPDATE_COMMENT = 'UPDATE_COMMENT';
+export const DELETE_COMMENT = 'DELETE_COMMENT';
+export const UPDATE_VOTE_COMMENT = 'UPDATE_VOTE_COMMENT';
 
 
-    static makeNewComment(parentId, body, author) {
-        return new Comment(this.genUniqueID(), parentId, this.genTimeStamp(), body, author, this.initVoteScore(), this.initDeleted(), false);
-    }
+export class Action {
+
+    
 
 }
