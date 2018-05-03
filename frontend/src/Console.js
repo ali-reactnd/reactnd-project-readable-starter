@@ -1,13 +1,20 @@
 import React, { Component}  from 'react';
 import {initialState} from './initialState';
 import {fetchWrapper, HEADER, BASE_URL} from './Actions/fetchWrapper';
+import { Post } from './Model';
 
 console.log(initialState);
 
 
 function fetchPosts () {
       return fetchWrapper(`${BASE_URL}/posts`, 'GET', HEADER)
-          .then(result =>  {return result;})
+          .then(posts =>  {
+            
+            console.log(posts);
+
+            return posts;
+          
+          })
 }
 
 
