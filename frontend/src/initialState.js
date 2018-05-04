@@ -1,4 +1,4 @@
-import {Category, Content, Post, Comment, ContentFactory} from './Model';
+import {Category, Post, Comment, ContentFactory} from './Model';
 
 const categories = [new Category('react','react'), 
               new Category('redux','redux'), 

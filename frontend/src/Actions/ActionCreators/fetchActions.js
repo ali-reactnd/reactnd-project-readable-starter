@@ -1,4 +1,4 @@
-import {fetchWrapper, HEADER, BASE_URL} from './fetchWrapper';
+import {fetchWrapper, HEADER, BASE_URL} from '../fetchWrapper';
 
 export function fetchCategories () {
     return function (dispatch) {

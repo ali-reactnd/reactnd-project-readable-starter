@@ -1,5 +1,5 @@
 /*  action types */
-import {fetchWrapper, HEADER, BASE_URL} from './fetchWrapper'
+import {fetchWrapper, HEADER, BASE_URL} from '../fetchWrapper'
 
 export function addPost(post) {
     return function (dispatch) {
