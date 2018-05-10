@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import CategoryBar from './Components/CategoryBar';
 
 class App extends Component {
+
+
   render() {
-    return (
-      <div>
-        <CategoryBar categories = {this.props.categories} />
-        <pre> {JSON.stringify(this.props, null, 2)} </pre>
-      </div>
-    );
+
+      const { categories, posts, comments } = this.props;
+
+      return (
+          <div >
+            <h2>Welcome to Readable</h2>
+
+            <Switch>
+                <Route exact path='/' render={(props)=> ( <CategoryBar {...props} categories={categories}/> )}  />
+            </Switch>
+
+          </div>
+      );
   }
 }
 
@@ -17,4 +27,4 @@ const mapStateToProps = (state = {}) => {
   return {...state};
 };
 
-export default connect(mapStateToProps, null)(App);
+export default withRouter(connect(mapStateToProps, null)(App));
