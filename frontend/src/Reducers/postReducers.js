@@ -37,9 +37,7 @@ export function posts(state = {}, action) {
         
         case SORT_POST:
             const key = action.sortby;
-            let posts =  state;
-            posts.sort(  (p1, p2) => (p1[key] < p2[key]) );
-            return posts;
+            return [...state].sort( (p1, p2) => (p1[key] < p2[key]) );
 
         case ADD_COMMENT:
             return state.map( post=> {

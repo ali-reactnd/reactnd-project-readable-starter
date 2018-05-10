@@ -1,11 +1,20 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { withRouter  } from 'react-router-dom';
+import { sortByTimeStamp, sortByVoteScore } from "../Actions/SyncActionCreators/syncActions";
 
 const SortMenu = (props) => {
     return (
         <h4>Sort by: 
-            <a href="">|vote score|</a> 
-            <a href="">|time stamp|</a> 
+            <button onClick={props.sortByVoteScore}>vote score</button>
+            <button onClick={props.sortByTimeStamp}>time stamp</button>
         </h4>
     );
 }
-export default SortMenu;
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators( {sortByTimeStamp, sortByVoteScore}, dispatch);
+}
+
+export default withRouter( connect(null, mapDispatchToProps)(SortMenu) );
