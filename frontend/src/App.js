@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route, withRouter } from 'react-router-dom';
-import CategoryBar from './Components/CategoryBar';
+import DefaultView from './Views/DefaultView';
 
 class App extends Component {
 
@@ -15,7 +15,7 @@ class App extends Component {
             <h2>Welcome to Readable</h2>
 
             <Switch>
-                <Route exact path='/' render={(props)=> ( <CategoryBar {...props} categories={categories}/> )}  />
+                <Route exact path='/' render={(props)=> ( <DefaultView {...props} categories={categories} posts={posts}/> )}  />
             </Switch>
 
           </div>
