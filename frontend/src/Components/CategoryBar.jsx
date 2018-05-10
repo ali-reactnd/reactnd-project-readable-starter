@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const CategoryBar = (props) => {
 
     return (
         <h3>Categories: 
             {props.categories.map( (category, index) => (
-                <a key={index} href={category.path}>|{category.name}|</a> 
+                <Link key={index} to={category.path}>|{category.name}|</Link> 
             ))}
         </h3>
     );

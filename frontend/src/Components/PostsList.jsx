@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 
 const PostsList = (props) => {
     
-    const { posts } = props;
+    let { posts } = props;
+    posts = posts.filter(post => post.deleted===false);
 
     return (
         <ul>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import DefaultView from './Views/DefaultView';
+import CategoryView from './Views/CategoryView';
 
 class App extends Component {
 
@@ -15,7 +16,12 @@ class App extends Component {
             <h2>Welcome to Readable</h2>
 
             <Switch>
-                <Route exact path='/' render={(props)=> ( <DefaultView {...props} categories={categories} posts={posts}/> )}  />
+                <Route exact path='/' render={ props=> 
+                  <DefaultView {...props} categories={categories} posts={posts}/> }  
+                />
+                <Route exact path='/:category' render={ props =>
+                  <CategoryView {...props} posts={posts} />}
+                />
             </Switch>
 
           </div>
