@@ -1,4 +1,5 @@
 import {fetchWrapper, HEADER, BASE_URL} from '../fetchWrapper';
+import {FETCH_CATEGORIES, FETCH_POSTS, FETCH_COMMENTS} from '../actionTypes';
 
 export function fetchCategories () {
     return function (dispatch) {

@@ -9,7 +9,7 @@ class App extends Component {
 
   render() {
 
-      const { categories, posts, comments } = this.props;
+      const { categories, posts } = this.props;
 
       return (
           <div >

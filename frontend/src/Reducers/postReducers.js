@@ -1,4 +1,5 @@
-import { FETCH_POSTS, ADD_POST, UPDATE_POST, DELETE_POST, UPDATE_VOTE_POST, ADD_COMMENT, DELETE_COMMENT } from '../Actions/actionTypes';
+import { FETCH_POSTS, ADD_POST, UPDATE_POST, DELETE_POST, VOTE_POST, SORT_POST } from '../Actions/actionTypes';
+import { ADD_COMMENT, DELETE_COMMENT } from '../Actions/actionTypes';
 
 // The combineReducers method will send a slice of state (i.e. state.posts) to this reducer
 export function posts(state = {}, action) {
@@ -26,13 +27,19 @@ export function posts(state = {}, action) {
                     return post;
             });
 
-        case UPDATE_VOTE_POST:
+        case VOTE_POST:
             return state.map( post=> {
                 if (post.id===action.id)
                     return {...post, "voteScore": action.option==="upVote"? post.voteScore+1 : post.voteScore-1};
                 else
                     return post;
             });
+        
+        case SORT_POST:
+            const key = action.sortby;
+            let posts =  state;
+            posts.sort(  (p1, p2) => (p1[key] < p2[key]) );
+            return posts;
 
         case ADD_COMMENT:
             return state.map( post=> {

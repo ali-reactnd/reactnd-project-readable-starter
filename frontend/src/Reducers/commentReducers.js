@@ -1,4 +1,5 @@
-import { UPDATE_VOTE_COMMENT, ADD_COMMENT, UPDATE_COMMENT, DELETE_COMMENT, FETCH_COMMENTS, DELETE_POST} from '../Actions/actionTypes';
+import { FETCH_COMMENTS, ADD_COMMENT, UPDATE_COMMENT, DELETE_COMMENT, VOTE_COMMENT } from '../Actions/actionTypes';
+import { DELETE_POST } from '../Actions/actionTypes';
 
 export function comments(state = {}, action) {
     switch (action.type) {
@@ -25,7 +26,7 @@ export function comments(state = {}, action) {
                     return comment;
             });
 
-        case UPDATE_VOTE_COMMENT:
+        case VOTE_COMMENT:
             return state.map( comment=> {
                 if (comment.id===action.id)
                     return {...comment, "voteScore": action.option==="upVote"? comment.voteScore+1 : comment.voteScore-1};
