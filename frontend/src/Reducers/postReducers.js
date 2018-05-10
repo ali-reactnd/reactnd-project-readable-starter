@@ -1,4 +1,4 @@
-import { ADD_POST, UPDATE_POST, DELETE_POST, UPDATE_VOTE_POST, ADD_COMMENT, DELETE_COMMENT } from '../Actions/actionTypes';
+import { FETCH_POSTS, ADD_POST, UPDATE_POST, DELETE_POST, UPDATE_VOTE_POST, ADD_COMMENT, DELETE_COMMENT } from '../Actions/actionTypes';
 
 // The combineReducers method will send a slice of state (i.e. state.posts) to this reducer
 export function posts(state = {}, action) {

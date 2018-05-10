@@ -1,8 +1,6 @@
 import React  from 'react';
 import {initialState} from './initialState';
 
-console.log(initialState);
-
 const Console = () =>  {
 
     return (
