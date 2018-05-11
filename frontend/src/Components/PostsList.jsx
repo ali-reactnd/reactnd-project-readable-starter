@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom';
 
 const PostsList = (props) => {
     
@@ -9,7 +9,9 @@ const PostsList = (props) => {
 
     return (
         <ul>
-            {posts.map( (post, index) => <li key={index}> <a href={`{post.category}/{post.postId}`}>{post.title}</a> </li>)}
+            {posts.map( (post, index) => <li key={index}> 
+                <Link to={`/${post.category}/${post.id}`} > {post.title} </Link>
+            </li>)}
         </ul>
     );
 

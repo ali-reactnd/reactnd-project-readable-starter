@@ -19,3 +19,4 @@ export const initialState = {
     posts: posts,
     comments: comments
 };
+

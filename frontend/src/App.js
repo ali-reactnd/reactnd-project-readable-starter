@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import DefaultView from './Views/DefaultView';
 import CategoryView from './Views/CategoryView';
+import PostDetailView from './Views/PostDetailView';
 
 class App extends Component {
 
 
   render() {
 
-      const { categories, posts } = this.props;
+      const { categories, posts, comments } = this.props;
 
       return (
           <div >
@@ -21,6 +22,9 @@ class App extends Component {
                 />
                 <Route exact path='/:category' render={ props =>
                   <CategoryView {...props} posts={posts} />}
+                />
+                <Route exact path='/:category/:post_id' render={(props)=>
+                  <PostDetailView {...props} posts={posts} comments={comments}/>}
                 />
             </Switch>
 
