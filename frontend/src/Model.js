@@ -65,7 +65,7 @@ export class ContentFactory {
     }
 
     static makeNewPost(title, body, author, category) {
-        return new Post(this.genUniqueID(), this.genTimeStamp(), title, body, author, category, this.initVoteScore(), this.initDeleted(), 0);
+        return new Post(this.genUniqueID(), this.genTimeStamp(), title, body, author, category, this.initVoteScore(), this.initDeleted(), 1);
     }
 
 

@@ -1,3 +1,4 @@
+import {classToPlain} from "class-transformer";
 import {Category, Post, Comment, ContentFactory} from './Model';
 
 const categories = [new Category('react','react'), 
@@ -15,8 +16,8 @@ const comments = [new Comment('894tuq4ut84ut8v4t8wun89g', '8xf0y6ziyjabvozdd253n
         ContentFactory.makeNewComment('6ni6ok3ym7mf1p33lnez', "This comment is made by the factory method!", "Ali M") ]
 
 export const initialState = {
-    categories: categories,
-    posts: posts,
-    comments: comments
+    categories: classToPlain(categories),
+    posts: classToPlain(posts),
+    comments: classToPlain(comments)
 };
 
