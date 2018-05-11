@@ -13,7 +13,7 @@ export function posts(state = {}, action) {
 
         case DELETE_POST:
             return state.map( post=> {
-                if (post.id===action.id)
+                if (post.id===action.postId)
                     return {...post, "deleted": true};
                 else
                     return post;
@@ -29,7 +29,7 @@ export function posts(state = {}, action) {
 
         case VOTE_POST:
             return state.map( post=> {
-                if (post.id===action.id)
+                if (post.id===action.postId)
                     return {...post, "voteScore": action.option==="upVote"? post.voteScore+1 : post.voteScore-1};
                 else
                     return post;
@@ -41,7 +41,7 @@ export function posts(state = {}, action) {
 
         case ADD_COMMENT:
             return state.map( post=> {
-                if (post.id===action.comment.parentId)
+                if (post.id===action.parentId)
                     return {...post, commentCount: post.commentCount+1};
                 else
                     return post;
@@ -49,7 +49,7 @@ export function posts(state = {}, action) {
 
         case DELETE_COMMENT:
             return state.map( post=> {
-                if (post.id===action.comment.parentId)
+                if (post.id===action.parentId)
                     return {...post, commentCount: post.commentCount-1};
                 else
                     return post;

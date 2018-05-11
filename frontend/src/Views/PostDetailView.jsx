@@ -10,6 +10,7 @@ const PostDetailView = (props) => {
     let post = props.posts.find(p=>p.id===postId);
     let comments = props.comments.filter(c=>c.parentId===post.id);
     
+    // TODO: Show 404 Error when the post is deleted! 
     return(
         <div>
             <h3>{post.title}</h3>

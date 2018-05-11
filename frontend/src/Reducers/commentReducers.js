@@ -12,7 +12,7 @@ export function comments(state = {}, action) {
 
         case DELETE_COMMENT:
             return state.map( comment=> {
-                if (comment.id===action.comment.id)
+                if (comment.id===action.commentId)
                     return {...comment, "deleted": true};
                 else
                     return comment;
@@ -28,7 +28,7 @@ export function comments(state = {}, action) {
 
         case VOTE_COMMENT:
             return state.map( comment=> {
-                if (comment.id===action.id)
+                if (comment.id===action.commentId)
                     return {...comment, "voteScore": action.option==="upVote"? comment.voteScore+1 : comment.voteScore-1};
                 else
                     return comment;
@@ -36,7 +36,7 @@ export function comments(state = {}, action) {
 
         case DELETE_POST:
             return state.map( comment=> {
-                if (comment.parentId===action.id)
+                if (comment.parentId===action.postId)
                     return {...comment, "parentDeleted": true};
                 else
                     return comment;

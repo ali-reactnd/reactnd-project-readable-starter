@@ -21,6 +21,12 @@ class ControlMenu extends Component {
             this.props.voteComment(this.props.id, "downVote");
     };
 
+    delete = () => {
+        this.props.type==="post" ?
+            this.props.votePost(this.props.id, "downVote") :
+            this.props.voteComment(this.props.id, "downVote");
+    }
+
     render() {
         return (
             <h4>

@@ -15,9 +15,9 @@ export function fetchPosts () {
     }
 }
 
-export function fetchComments (post_id) {
+export function fetchComments (postId) {
     return function (dispatch) {
-        return fetchWrapper(`${BASE_URL}/posts/${post_id}/comments`, 'GET', HEADER)
+        return fetchWrapper(`${BASE_URL}/posts/${postId}/comments`, 'GET', HEADER)
         .then(result =>  dispatch({ type: FETCH_COMMENTS, comments: result  }))
     }
 }
