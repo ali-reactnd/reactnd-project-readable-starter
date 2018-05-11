@@ -11,7 +11,7 @@ const Content = (props) => {
             <p>{body}</p>
             <p> 
             {`Written by: ${author}`} <br/> 
-            {`Posted on: ${<Moment format=" YYYY/MM/DD h:mm a">{timestamp}</Moment>}`} <br/>
+            Posted on: {<Moment format=" YYYY/MM/DD h:mm a">{timestamp}</Moment>} <br/>
             {`Vote score: ${voteScore}`} 
             </p>
             <ControlMenu />
