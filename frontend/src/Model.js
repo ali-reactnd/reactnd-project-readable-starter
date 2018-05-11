@@ -49,7 +49,7 @@ export class Comment extends Content {
 export class ContentFactory {
 
     static initVoteScore () {
-        return 0;
+        return 1;
     }
 
     static initDeleted(){
@@ -65,7 +65,7 @@ export class ContentFactory {
     }
 
     static makeNewPost(title, body, author, category) {
-        return new Post(this.genUniqueID(), this.genTimeStamp(), title, body, author, category, this.initVoteScore(), this.initDeleted(), 1);
+        return new Post(this.genUniqueID(), this.genTimeStamp(), title, body, author, category, this.initVoteScore(), this.initDeleted(), 0);
     }
 
 

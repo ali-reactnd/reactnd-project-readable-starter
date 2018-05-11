@@ -4,7 +4,7 @@ import Moment from 'react-moment';
 import ControlMenu from './ControlMenu';
 
 const Content = (props) => {
-    let {body, author, timestamp, voteScore} = props.content;
+    let {body, author, timestamp, voteScore, commentCount} = props.content;
 
     return(
         <div>
@@ -12,7 +12,8 @@ const Content = (props) => {
             <p> 
             {`Written by: ${author}`} <br/> 
             Posted on: {<Moment format=" YYYY/MM/DD h:mm a">{timestamp}</Moment>} <br/>
-            {`Vote score: ${voteScore}`} 
+            {`Vote score: ${voteScore}`}<br/> 
+            {commentCount!==undefined? `Number of comments: ${commentCount}`: null}
             </p>
             <ControlMenu />
         </div>
