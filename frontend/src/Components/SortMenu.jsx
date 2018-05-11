@@ -6,10 +6,13 @@ import { sortByTimeStamp, sortByVoteScore } from "../Actions/SyncActionCreators/
 
 const SortMenu = (props) => {
     return (
-        <h4>Sort by: 
-            <button onClick={props.sortByVoteScore}>vote score</button>
-            <button onClick={props.sortByTimeStamp}>time stamp</button>
-        </h4>
+        <div>
+            <h4>Sort by: 
+                <button onClick={props.sortByVoteScore}>vote score</button>
+                <button onClick={props.sortByTimeStamp}>time stamp</button>
+            </h4>
+            <hr />
+        </div>
     );
 }
 

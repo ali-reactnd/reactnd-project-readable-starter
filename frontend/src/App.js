@@ -20,20 +20,21 @@ class App extends Component {
 
       return (
           <div >
-            <h2>Welcome to Readable</h2>
+            <center>
+              <h2>Welcome to Readable</h2>
 
-            <Switch>
-                <Route exact path='/' render={ props=> 
-                  <DefaultView {...props} categories={categories} posts={posts}/> }  
-                />
-                <Route exact path='/:category' render={ props =>
-                  <CategoryView {...props} posts={posts} />}
-                />
-                <Route exact path='/:category/:post_id' render={(props)=>
-                  <PostDetailView {...props} posts={posts} comments={comments}/>}
-                />
-            </Switch>
-
+              <Switch>
+                  <Route exact path='/' render={ props=> 
+                    <DefaultView {...props} categories={categories} posts={posts}/> }  
+                  />
+                  <Route exact path='/:category' render={ props =>
+                    <CategoryView {...props} posts={posts} />}
+                  />
+                  <Route exact path='/:category/:post_id' render={(props)=>
+                    <PostDetailView {...props} posts={posts} comments={comments}/>}
+                  />
+              </Switch>
+            </center>
           </div>
       );
   }

@@ -23,8 +23,8 @@ class ControlMenu extends Component {
 
     delete = () => {
         this.props.type==="post" ?
-            this.props.votePost(this.props.id, "downVote") :
-            this.props.voteComment(this.props.id, "downVote");
+            this.props.deletePost(this.props.id, "downVote") :
+            this.props.deleteComment(this.props.id, this.props.parentId);
     }
 
     render() {
@@ -33,7 +33,7 @@ class ControlMenu extends Component {
                 <button onClick={this.upVote}>Up Vote</button>
                 <button onClick={this.downVote}>Down Vote</button>
                 <button >Edit</button>
-                <button >Delete</button>
+                <button onClick={this.delete}>Delete</button>
             </h4>
         );
     }

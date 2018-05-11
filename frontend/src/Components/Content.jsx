@@ -15,7 +15,8 @@ const Content = (props) => {
             {`Vote score: ${voteScore}`}<br/> 
             {commentCount!==undefined? `Number of comments: ${commentCount}`: null}
             </p>
-            <ControlMenu id={props.content.id} type={props.type}/>
+            <ControlMenu id={props.content.id} parentId={props.content.parentId} type={props.type}/>
+            <hr />
         </div>
     )
 }

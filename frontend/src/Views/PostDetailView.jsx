@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Content from '../Components/Content';
 import ContentsList from '../Components/ContentsList';
+import NotFound from '../Components/NotFound';
 
 
 const PostDetailView = (props) => {
@@ -12,6 +13,7 @@ const PostDetailView = (props) => {
     
     // TODO: Show 404 Error when the post is deleted! 
     return(
+        post.deleted? <NotFound /> :
         <div>
             <h3>{post.title}</h3>
             <Content content={post} type="post" />

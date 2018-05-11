@@ -13,18 +13,18 @@ const ContentsList = (props) => {
     let fetch = props.fetchComments;
 
     return (
-        <ul>
+        <div>
             {contents.map( (content, index) => {
                 let { id, category, title } = content;
                 return (
-                    <li key={index}>
+                    <div>
                         {!!title ? <h3><Link to={`/${category}/${id}`} onClick={(e)=>fetch(id)}>{title}</Link></h3> : null}
                         <Content content={content} type={props.type}/>
-                    </li>
+                    </div>
                 )
 
             })} 
-        </ul>
+        </div>
     );
 
 }
