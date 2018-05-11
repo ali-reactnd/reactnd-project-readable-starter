@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import Content from '../Components/Content';
 import ContentsList from '../Components/ContentsList';
 
+
 const PostDetailView = (props) => {
 
-    let {posts, comments} = props;
     const postId = props.match.params.post_id;
-    let post = posts.find(p=>p.id===postId);
-    comments = comments.filter(c=>c.parentId===post.id);
+    let post = props.posts.find(p=>p.id===postId);
+    let comments = props.comments.filter(c=>c.parentId===post.id);
     
     return(
         <div>

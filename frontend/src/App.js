@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route, withRouter } from 'react-router-dom';
-import {fetchCategories, fetchPosts, fetchComments} from "./Actions/AsyncActionCreators/fetchActions";
+import {fetchCategories, fetchPosts} from "./Actions/AsyncActionCreators/fetchActions";
 import DefaultView from './Views/DefaultView';
 import CategoryView from './Views/CategoryView';
 import PostDetailView from './Views/PostDetailView';
@@ -12,7 +12,6 @@ class App extends Component {
     const { dispatch } = this.props
     dispatch(fetchCategories());
     dispatch(fetchPosts());
-    dispatch(fetchComments());
   }
 
   render() {
