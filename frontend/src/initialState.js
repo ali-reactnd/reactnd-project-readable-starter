@@ -8,7 +8,7 @@ const categories = [new Category('react','react'),
 const posts = [ new Post('8xf0y6ziyjabvozdd253nd', 1467166872634, 'Udacity is the best place to learn React', 'Everyone says so after all.', 'thingtwo', 'react', 6, false, 2),
           new Post('6ni6ok3ym7mf1p33lnez', 1468479767190, 'Learn Redux in 10 minutes!',
           'Just kidding. It takes more than 10 minutes to learn technology.', 'thingone', 'redux', -5, false, 1),
-          ContentFactory.makeNewPost('Title of factory post','body of factory post', 'author of factory post','redux')
+          ContentFactory.makeNewPost('This is yet another post','This post is made by the factory method!', 'Ali M','redux')
   ];
 
 const comments = [new Comment('894tuq4ut84ut8v4t8wun89g', '8xf0y6ziyjabvozdd253nd', 1468166872634, 'Hi there! I am a COMMENT.', 'thingtwo', 6, false, false),
