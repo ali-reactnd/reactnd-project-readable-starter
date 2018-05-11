@@ -15,13 +15,14 @@ const Content = (props) => {
             {`Vote score: ${voteScore}`}<br/> 
             {commentCount!==undefined? `Number of comments: ${commentCount}`: null}
             </p>
-            <ControlMenu />
+            <ControlMenu id={props.content.id} type={props.type}/>
         </div>
     )
 }
 
 Content.propTypes = {
-    content: PropTypes.object.isRequired
+    content: PropTypes.object.isRequired,
+    type: PropTypes.string.isRequired
 };
 
 

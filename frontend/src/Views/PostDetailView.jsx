@@ -13,8 +13,8 @@ const PostDetailView = (props) => {
     return(
         <div>
             <h3>{post.title}</h3>
-            <Content content={post} />
-            <ContentsList contents={comments} />
+            <Content content={post} type="post" />
+            <ContentsList contents={comments} type="comment"/>
         </div>
     )
 }

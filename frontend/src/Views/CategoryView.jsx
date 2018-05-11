@@ -12,7 +12,7 @@ const CategoryView = (props) => {
     return (
         <div>
             <SortMenu />
-            <ContentsList contents={posts} />
+            <ContentsList contents={posts} type="post"/>
             <div><h4>Click <a href="">here</a> to add a new post.</h4></div>
         </div>
     );

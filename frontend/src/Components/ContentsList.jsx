@@ -19,7 +19,7 @@ const ContentsList = (props) => {
                 return (
                     <li key={index}>
                         {!!title ? <h3><Link to={`/${category}/${id}`} onClick={(e)=>fetch(id)}>{title}</Link></h3> : null}
-                        <Content content={content}/>
+                        <Content content={content} type={props.type}/>
                     </li>
                 )
 
@@ -31,7 +31,8 @@ const ContentsList = (props) => {
 
 
 ContentsList.propTypes = {
-    contents: PropTypes.array.isRequired
+    contents: PropTypes.array.isRequired,
+    type: PropTypes.string.isRequired
 };
 
 function mapDispatchToProps(dispatch) {
