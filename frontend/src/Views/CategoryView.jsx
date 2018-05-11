@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SortMenu from '../Components/SortMenu';
-import PostsList from '../Components/PostsList';
+import ContentsList from '../Components/ContentsList';
 
 const CategoryView = (props) => {
 
@@ -12,7 +12,7 @@ const CategoryView = (props) => {
     return (
         <div>
             <SortMenu />
-            <PostsList posts={posts} />
+            <ContentsList contents={posts} />
             <div><h4>Click <a href="">here</a> to add a new post.</h4></div>
         </div>
     );

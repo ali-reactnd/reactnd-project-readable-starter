@@ -12,7 +12,7 @@ const posts = [ new Post('8xf0y6ziyjabvozdd253nd', 1467166872634, 'Udacity is th
   ];
 
 const comments = [new Comment('894tuq4ut84ut8v4t8wun89g', '8xf0y6ziyjabvozdd253nd', 1468166872634, 'Hi there! I am a COMMENT.', 'thingtwo', 6, false, false),
-            new Comment('8tu4bsun805n8un48ve89', '8xf0y6ziyjabvozdd253nd', 1469479767190, 'Comments. Are. Cool.', 'thingone' -5, false, false),
+            new Comment('8tu4bsun805n8un48ve89', '8xf0y6ziyjabvozdd253nd', 1469479767190, 'Comments. Are. Cool.', 'thingone', -5, false, false),
         ContentFactory.makeNewComment('6ni6ok3ym7mf1p33lnez', "This comment is made by the factory method!", "Ali M") ]
 
 export const initialState = {

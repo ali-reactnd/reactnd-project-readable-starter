@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CategoryBar from '../Components/CategoryBar';
 import SortMenu from '../Components/SortMenu';
-import PostsList from '../Components/PostsList';
+import ContentsList from '../Components/ContentsList';
 
 const DefaultView = (props) => {
 
@@ -12,7 +12,7 @@ const DefaultView = (props) => {
         <div>
             <CategoryBar categories={categories} />
             <SortMenu />
-            <PostsList posts={posts} />
+            <ContentsList contents={posts} />
             <div><h4>Click <a href="">here</a> to add a new post.</h4></div>
         </div>
     );

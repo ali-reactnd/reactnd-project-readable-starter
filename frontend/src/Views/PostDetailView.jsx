@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Post from '../Components/Post';
+import Content from '../Components/Content';
+import ContentsList from '../Components/ContentsList';
 
 const PostDetailView = (props) => {
 
@@ -10,7 +11,11 @@ const PostDetailView = (props) => {
     comments = comments.filter(c=>c.parentId===post.id);
     
     return(
-        <Post post={post} comments={comments}/>
+        <div>
+            <h3>{post.title}</h3>
+            <Content content={post} />
+            <ContentsList contents={comments} />
+        </div>
     )
 }
 
