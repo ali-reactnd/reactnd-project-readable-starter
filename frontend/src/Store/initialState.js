@@ -1,5 +1,5 @@
 import {classToPlain} from "class-transformer";
-import {Category, Post, Comment, ContentFactory} from './Model';
+import {Category, Post, Comment, ContentFactory} from '../Model/Model';
 
 const categories = [new Category('react','react'), 
               new Category('redux','redux'), 

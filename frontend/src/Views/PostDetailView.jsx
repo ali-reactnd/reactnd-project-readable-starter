@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Content from '../Components/Content';
 import ContentsList from '../Components/ContentsList';
 import NotFound from '../Components/NotFound';
@@ -18,6 +19,7 @@ const PostDetailView = (props) => {
             <h3>{post.title}</h3>
             <Content content={post} type="post" />
             <ContentsList contents={comments} type="comment"/>
+            <div><h4>Click <Link to={`/create/${post.id}/comment`} >here</Link> to add a new comment.</h4></div>
         </div>
     )
 }

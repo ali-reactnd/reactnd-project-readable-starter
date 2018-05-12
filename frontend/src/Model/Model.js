@@ -68,7 +68,7 @@ export class ContentFactory {
         return new Post(this.genUniqueID(), this.genTimeStamp(), title, body, author, category, this.initVoteScore(), this.initDeleted(), 0);
     }
 
-
+    // TODO: update the comment count on the post associated to the comment.
     static makeNewComment(parentId, body, author) {
         return new Comment(this.genUniqueID(), parentId, this.genTimeStamp(), body, author, this.initVoteScore(), this.initDeleted(), false);
     }

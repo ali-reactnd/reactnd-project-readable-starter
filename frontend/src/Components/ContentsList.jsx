@@ -17,7 +17,7 @@ const ContentsList = (props) => {
             {contents.map( (content, index) => {
                 let { id, category, title } = content;
                 return (
-                    <div>
+                    <div key={index}>
                         {!!title ? <h3><Link to={`/${category}/${id}`} onClick={(e)=>fetch(id)}>{title}</Link></h3> : null}
                         <Content content={content} type={props.type}/>
                     </div>

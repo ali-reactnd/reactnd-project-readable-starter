@@ -5,6 +5,8 @@ import {fetchCategories, fetchPosts} from "./Actions/AsyncActionCreators/fetchAc
 import DefaultView from './Views/DefaultView';
 import CategoryView from './Views/CategoryView';
 import PostDetailView from './Views/PostDetailView';
+import CreateView from './Views/CreateView';
+import EditView from './Views/EditView';
 
 class App extends Component {
 
@@ -27,12 +29,15 @@ class App extends Component {
                   <Route exact path='/' render={ props=> 
                     <DefaultView {...props} categories={categories} posts={posts}/> }  
                   />
+                  <Route path='/create' render={(props)=> <CreateView  />} />
+                  <Route path='/edit' render={(props)=> <EditView  />} />
                   <Route exact path='/:category' render={ props =>
                     <CategoryView {...props} posts={posts} />}
                   />
                   <Route exact path='/:category/:post_id' render={(props)=>
                     <PostDetailView {...props} posts={posts} comments={comments}/>}
                   />
+
               </Switch>
             </center>
           </div>

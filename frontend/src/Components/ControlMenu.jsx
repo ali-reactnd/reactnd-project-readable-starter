@@ -1,4 +1,5 @@
 import React, { Component }from 'react';
+import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter  } from 'react-router-dom';
@@ -27,12 +28,23 @@ class ControlMenu extends Component {
             this.props.deleteComment(this.props.id, this.props.parentId);
     }
 
+    edit = () => {
+        return this.props.type==="post" ?
+            <Link to={`/edit/${this.props.id}`}>
+                <button type="button">Edit</button>
+            </Link>
+            :
+            <Link to={`/edit/${this.props.parentId}/${this.props.id}`}>
+                <button type="button">Edit</button>
+            </Link>
+    }
+
     render() {
         return (
             <h4>
                 <button onClick={this.upVote}>Up Vote</button>
                 <button onClick={this.downVote}>Down Vote</button>
-                <button >Edit</button>
+                {this.edit()}
                 <button onClick={this.delete}>Delete</button>
             </h4>
         );

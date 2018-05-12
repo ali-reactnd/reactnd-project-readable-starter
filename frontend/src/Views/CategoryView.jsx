@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import SortMenu from '../Components/SortMenu';
 import ContentsList from '../Components/ContentsList';
 
@@ -13,7 +14,7 @@ const CategoryView = (props) => {
         <div>
             <SortMenu />
             <ContentsList contents={posts} type="post"/>
-            <div><h4>Click <a href="">here</a> to add a new post.</h4></div>
+            <div><h4>Click <Link to={`/create/${category}/post`} >here</Link> to add a new post.</h4></div>
         </div>
     );
 
