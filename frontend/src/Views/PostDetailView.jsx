@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Content from '../Components/Content';
 import ContentsList from '../Components/ContentsList';
 import NotFound from '../Components/NotFound';
+import HomeButton from '../Components/HomeButton';
 
 
 const PostDetailView = (props) => {
@@ -16,6 +17,7 @@ const PostDetailView = (props) => {
     return(
         post.deleted? <NotFound /> :
         <div>
+            <HomeButton />
             <h3>{post.title}</h3>
             <Content content={post} type="post" />
             <ContentsList contents={comments} type="comment"/>

@@ -5,11 +5,16 @@ import { Link } from 'react-router-dom';
 const CategoryBar = (props) => {
 
     return (
-        <h3>Categories: 
-            {props.categories.map( (category, index) => (
-                <Link key={index} to={category.path}>|{category.name}|</Link> 
-            ))}
-        </h3>
+        <div>
+            <hr />
+            <h3>Categories: 
+                {props.categories.map( (category, index) => (
+                    <Link key={index} to={category.path}>|{category.name}|</Link> 
+                ))}
+            </h3>
+            <hr />
+        </div>
+
     );
 
 }
