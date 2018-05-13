@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { addPost, addComment } from '../Actions/AsyncActionCreators/addActions';
 import { updatePost, updateComment } from '../Actions/AsyncActionCreators/updateActions';
-
+import { Container, Segment, Button, Form } from 'semantic-ui-react';
 
 class ContentForm extends Component {
 
@@ -24,11 +24,11 @@ class ContentForm extends Component {
     
     handleChange(event) {
         const {name, value} = event.target;
+        console.log({name, value});
         this.setState( {content: Object.assign({}, this.state.content, {[name]:value} )}  );
     }
 
     handlePost() {
-
         switch (this.props.actionType){
             case "add":
                 this.props.addPost(this.state.content);
@@ -37,6 +37,7 @@ class ContentForm extends Component {
                 this.props.updatePost(this.state.content);
                 break;
             default:
+                console.log("Invalid action type!");
         }
     }
 
@@ -49,6 +50,7 @@ class ContentForm extends Component {
                 this.props.updateComment(this.state.content);
                 break;
             default:
+                console.log("Invalid action type!");
         }
     }
 
@@ -61,6 +63,7 @@ class ContentForm extends Component {
                 this.handleComment();
                 break;
             default:
+                console.log("Invalid content type!");
         }
         this.closeForm(event);
     }
@@ -71,25 +74,24 @@ class ContentForm extends Component {
     }
 
     createInputForTitle(title){
-
         if (title===undefined)
             return null;
 
         return (
-            <label>
-                <h4>Title:</h4>
-                <input name="title" type="text" defaultValue={title} onChange = {this.handleChange}  width="100%;"/>
-            </label>
+            <div className="required field">
+                <label>Title:</label>
+                <input name="title" type="text" defaultValue={title} onChange={this.handleChange}  width="100%;"/>
+            </div>
           );
     }
 
     createInputForBody(body){
         let msg = this.props.contentType;
         return (
-            <label>
-                <h4>{`Write your ${msg}:`}</h4> 
-                <textarea name="body" defaultValue={body} onChange = {this.handleChange} />
-            </label>
+            <div className="required field">
+                <label>{`Write your ${msg}:`}</label> 
+                <textarea name="body" defaultValue={body} onChange={this.handleChange} />
+            </div>
           );
     }
 
@@ -100,44 +102,46 @@ class ContentForm extends Component {
         let categories = this.props.categories;
         
         return (
-            <label>
-                <h4>Select Category</h4> 
-                <select name="category" defaultValue={category} onChange = {this.handleChange}>
-                { categories? categories.map(( c, i)=>
-                            <option key={i} value={c.name}>{c.name}</option>) : null }
+            <div className="required field">
+                <label>Select Category:</label> 
+                <select name="category" defaultValue={category} onChange={this.handleChange}>
+                { categories? categories.map( (c, i) => {
+                        return <option key={i} value={c.name}>{c.name}</option>
+                    }
+                ) : null }
                 </select>
-            </label>
+            </div>
         );
     }
     
     createInputForAuthor(author){
-
         return (
-            <label>
-                <h4>Author:</h4>
-                <input name="author" type="text" defaultValue={author} onChange = {this.handleChange} />
-            </label>
+            <div className="required field">
+                <label>Author:</label>
+                <input name="author" type="text" defaultValue={author} onChange={this.handleChange} />
+            </div>
           );
     }
 
 
     render() {
-
         const { title, body, author, category } = this.state.content;
 
         return (
-            <div>
-                <form>
-                    {this.createInputForTitle(title)}
-                    {this.createInputForBody(body)}
-                    {this.createInputForCategory(category)}
-                    {this.createInputForAuthor(author)} <br /><br />
-                    <div>
-                        <button onClick={this.handleSubmit}>Save</button>
-                        <button onClick={this.closeForm}>Cancel</button>
-                    </div>
-                </form>
-            </div>
+            <Container text>
+                <Segment padded="very" raised>
+                    <Form>
+                        {this.createInputForTitle(title)}
+                        {this.createInputForBody(body)}
+                        {this.createInputForCategory(category)}
+                        {this.createInputForAuthor(author)} 
+                        <div className="field">
+                            <Button onClick={this.handleSubmit}>Save</Button>
+                            <Button onClick={this.closeForm}>Cancel</Button>
+                        </div>
+                    </Form>
+                </Segment>
+            </Container>
         );
     }
 

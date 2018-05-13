@@ -6,13 +6,10 @@ import NotFound from '../Components/NotFound';
 import ContentForm from '../Components/ContentForm'
 
 const EditView = (props) => {
-
     const {posts, comments} = props;
 
     return (
-
         <Switch>
-
             <Route exact path='/edit/:post_id' render={(props) => {
                 let postId = props.match.params.post_id;
                 let post = posts.filter(p=> p.deleted===false).find( p=> p.id===postId );
@@ -28,14 +25,12 @@ const EditView = (props) => {
                     <ContentForm {...props} content={comment} actionType="edit" contentType="comment"/>
                 ) :  <NotFound />;
             }}  />
-
         </Switch>
     );
-
 }
 
 const mapStateToProps = (state = {}) => {
     return {...state};
-  };
+};
   
 export default withRouter(connect(mapStateToProps, null)(EditView));

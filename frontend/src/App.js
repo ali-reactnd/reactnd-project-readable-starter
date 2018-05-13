@@ -7,6 +7,8 @@ import CategoryView from './Views/CategoryView';
 import PostDetailView from './Views/PostDetailView';
 import CreateView from './Views/CreateView';
 import EditView from './Views/EditView';
+import PageHeader from "./Components/PageHeader";
+import { Header } from 'semantic-ui-react';
 
 class App extends Component {
 
@@ -22,8 +24,7 @@ class App extends Component {
 
       return (
           <div >
-            <center>
-              <h2>Welcome to Readable</h2>
+              <PageHeader title="Readable" />
 
               <Switch>
                   <Route exact path='/' render={ props=> 
@@ -32,14 +33,15 @@ class App extends Component {
                   <Route path='/create' render={(props)=> <CreateView  />} />
                   <Route path='/edit' render={(props)=> <EditView  />} />
                   <Route exact path='/:category' render={ props =>
-                    <CategoryView {...props} posts={posts} />}
+                    <CategoryView {...props} categories={categories} posts={posts} />}
                   />
                   <Route exact path='/:category/:post_id' render={(props)=>
                     <PostDetailView {...props} posts={posts} comments={comments}/>}
                   />
 
               </Switch>
-            </center>
+
+              <Header as='h6' textAlign='center'>Copyright: Ali M @ 2018</Header>
           </div>
       );
   }

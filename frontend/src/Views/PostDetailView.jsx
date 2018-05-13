@@ -1,29 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import Content from '../Components/Content';
 import ContentsList from '../Components/ContentsList';
 import NotFound from '../Components/NotFound';
-import HomeButton from '../Components/HomeButton';
+import Navigation from '../Components/Navigation';
+import { Grid, Header } from 'semantic-ui-react'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { withRouter  } from 'react-router-dom';
+import { fetchComments } from "../Actions/AsyncActionCreators/fetchActions";
+import AddNewContentLink from '../Components/AddNewContentLink';
 
+class PostDetailView extends Component {
 
-const PostDetailView = (props) => {
+    constructor(props) {
+        super(props);
+        const postId = props.match.params.post_id;
 
-    const postId = props.match.params.post_id;
-    let post = props.posts.find(p=>p.id===postId);
-    let comments = props.comments.filter(c=>c.parentId===post.id);
-    
-    // TODO: Show 404 Error when the post is deleted! 
-    return(
-        post.deleted? <NotFound /> :
-        <div>
-            <HomeButton />
-            <h3>{post.title}</h3>
-            <Content content={post} type="post" />
-            <ContentsList contents={comments} type="comment"/>
-            <div><h4>Click <Link to={`/create/${post.id}/comment`} >here</Link> to add a new comment.</h4></div>
-        </div>
-    )
+        this.state = {
+          postId: postId,
+        };
+    }
+
+    componentDidMount() {
+        this.props.fetchComments(this.state.postId);
+    }
+
+    render() {
+
+        const { posts, comments } = this.props;
+        let post = posts.find(p=>p.id===this.state.postId);
+     
+        return(
+            post.deleted? <NotFound /> :
+                <div>
+                    <Grid centered>
+                        <Navigation />
+                    </Grid>
+                    <Content content={post} contentType="post" />
+                    <Header size='medium' textAlign='center'>Comments</Header>
+                    <ContentsList contents={comments} contentType="comment"/>
+                    <AddNewContentLink path={`/create/${post.id}/comment`} contentType="comment" />
+                </div>
+        )
+    }
 }
 
 PostDetailView.propTypes = {
@@ -31,4 +51,12 @@ PostDetailView.propTypes = {
     comments : PropTypes.array.isRequired
 };
 
-export default PostDetailView;
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators( {fetchComments}, dispatch);
+}
+
+function mapStateToProps(state={}) {
+    return {posts: state.posts, comments: state.comments};
+}
+
+export default withRouter( connect(mapStateToProps, mapDispatchToProps)(PostDetailView) );

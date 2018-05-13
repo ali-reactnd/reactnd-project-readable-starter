@@ -5,48 +5,56 @@ import { connect } from 'react-redux';
 import { withRouter  } from 'react-router-dom';
 import { votePost, voteComment } from "../Actions/AsyncActionCreators/voteActions";
 import { deletePost, deleteComment } from "../Actions/AsyncActionCreators/deleteActions";
-
-
+import { Button, Icon } from 'semantic-ui-react';
 
 class ControlMenu extends Component {
 
     upVote = () => {
-        this.props.type==="post" ?
+        this.props.contentType==="post" ?
             this.props.votePost(this.props.id, "upVote") :
             this.props.voteComment(this.props.id, "upVote");
     };
 
     downVote = () => {
-        this.props.type==="post" ?
+        this.props.contentType==="post" ?
             this.props.votePost(this.props.id, "downVote") :
             this.props.voteComment(this.props.id, "downVote");
     };
 
     delete = () => {
-        this.props.type==="post" ?
+        this.props.contentType==="post" ?
             this.props.deletePost(this.props.id, "downVote") :
             this.props.deleteComment(this.props.id, this.props.parentId);
     }
 
     edit = () => {
-        return this.props.type==="post" ?
+        return this.props.contentType==="post" ?
             <Link to={`/edit/${this.props.id}`}>
-                <button type="button">Edit</button>
+                <Button content="Edit" icon='edit' labelPosition='left' />
             </Link>
             :
             <Link to={`/edit/${this.props.parentId}/${this.props.id}`}>
-                <button type="button">Edit</button>
+                <Button content="Edit" icon='edit' labelPosition='left' />
             </Link>
     }
 
     render() {
         return (
-            <h4>
-                <button onClick={this.upVote}>Up Vote</button>
-                <button onClick={this.downVote}>Down Vote</button>
+            <div>
+                <Button.Group>
+                    <Button icon onClick={this.upVote}>
+                        <Icon name='thumbs up outline' />
+                    </Button>
+                    <Button.Or text='V' />
+                    <Button icon onClick={this.downVote}>
+                        <Icon name='thumbs down outline' />
+                    </Button>
+                </Button.Group>
+                {" "}
                 {this.edit()}
-                <button onClick={this.delete}>Delete</button>
-            </h4>
+                <Button content="Delete" icon='trash' labelPosition='left' onClick={this.delete} />
+
+            </div>
         );
     }
 
@@ -56,4 +64,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators( {votePost, voteComment, deletePost, deleteComment}, dispatch);
 }
 
-export default withRouter( connect(null, mapDispatchToProps)(ControlMenu) );
+export default withRouter( connect(null, mapDispatchToProps)(ControlMenu));

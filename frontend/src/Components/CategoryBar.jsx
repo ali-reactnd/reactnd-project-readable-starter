@@ -1,26 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import { Menu } from 'semantic-ui-react';
 
 const CategoryBar = (props) => {
 
     return (
-        <div>
-            <hr />
-            <h3>Categories: 
-                {props.categories.map( (category, index) => (
-                    <Link key={index} to={category.path}>|{category.name}|</Link> 
-                ))}
-            </h3>
-            <hr />
-        </div>
+
+        <Menu text >
+            <Menu.Item header>Category:</Menu.Item>
+            <Menu.Item name="all" onClick={()=> { props.history.push('./')}} />
+            {props.categories.map( (category, index) => (
+                <Menu.Item key={index} name={category.name} onClick={()=> { props.history.push(category.path)}} />
+            ))}
+        </Menu>
 
     );
 
 }
 
 CategoryBar.propTypes = {
-    categories: PropTypes.array.isRequired
+    categories: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        path: PropTypes.string.isRequired
+    })).isRequired
 };
 
-export default CategoryBar;
+export default withRouter(CategoryBar);

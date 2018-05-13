@@ -3,16 +3,15 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter  } from 'react-router-dom';
 import { sortByTimeStamp, sortByVoteScore } from "../Actions/SyncActionCreators/syncActions";
+import { Menu } from 'semantic-ui-react';
 
 const SortMenu = (props) => {
     return (
-        <div>
-            <h4>Sort by: 
-                <button onClick={props.sortByVoteScore}>vote score</button>
-                <button onClick={props.sortByTimeStamp}>time stamp</button>
-            </h4>
-            <hr />
-        </div>
+        <Menu text>
+            <Menu.Item header>Sort By</Menu.Item>
+            <Menu.Item name='vote score' onClick={props.sortByVoteScore} />
+            <Menu.Item name='time stamp' onClick={props.sortByTimeStamp} />
+        </Menu>
     );
 }
 
