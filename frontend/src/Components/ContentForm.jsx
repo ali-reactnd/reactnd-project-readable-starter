@@ -123,7 +123,6 @@ class ContentForm extends Component {
           );
     }
 
-
     render() {
         const { title, body, author, category } = this.state.content;
 
@@ -144,7 +143,6 @@ class ContentForm extends Component {
             </Container>
         );
     }
-
 }
 
 ContentForm.propTypes = {

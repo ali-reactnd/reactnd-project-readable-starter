@@ -1,8 +1,7 @@
 import React, { Component }from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { withRouter  } from 'react-router-dom';
 import { votePost, voteComment } from "../Actions/AsyncActionCreators/voteActions";
 import { deletePost, deleteComment } from "../Actions/AsyncActionCreators/deleteActions";
 import { Button, Icon } from 'semantic-ui-react';
@@ -53,15 +52,13 @@ class ControlMenu extends Component {
                 {" "}
                 {this.edit()}
                 <Button content="Delete" icon='trash' labelPosition='left' onClick={this.delete} />
-
             </div>
         );
     }
-
 }
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators( {votePost, voteComment, deletePost, deleteComment}, dispatch);
 }
 
-export default withRouter( connect(null, mapDispatchToProps)(ControlMenu));
+export default withRouter( connect(null, mapDispatchToProps)(ControlMenu) );

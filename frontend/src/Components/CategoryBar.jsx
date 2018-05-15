@@ -4,9 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { Menu } from 'semantic-ui-react';
 
 const CategoryBar = (props) => {
-
     return (
-
         <Menu text >
             <Menu.Item header>Category:</Menu.Item>
             <Menu.Item name="all" onClick={()=> { props.history.push('./')}} />
@@ -14,9 +12,7 @@ const CategoryBar = (props) => {
                 <Menu.Item key={index} name={category.name} onClick={()=> { props.history.push(category.path)}} />
             ))}
         </Menu>
-
     );
-
 }
 
 CategoryBar.propTypes = {

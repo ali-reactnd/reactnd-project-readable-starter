@@ -12,12 +12,10 @@ const Content = (props) => {
     return(
         <Container text>
             <Segment padded="very" raised>
-    
                 <ContentHeader title={title} category={category} id={id} />
                 <p>{body}</p>
                 <ContentMetaData author={author} timestamp={timestamp} voteScore={voteScore} commentCount={commentCount} />
                 <ControlMenu id={props.content.id} parentId={props.content.parentId} contentType={props.contentType}/>
-
             </Segment>
         </Container>
     )
