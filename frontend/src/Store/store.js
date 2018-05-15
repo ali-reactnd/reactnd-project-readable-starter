@@ -13,7 +13,6 @@ const store = createStore(
     )
 );
 
-
-store.subscribe(() => {console.log('store', store.getState())});
+// store.subscribe(() => {console.log('store', store.getState())});
 
 export default store;

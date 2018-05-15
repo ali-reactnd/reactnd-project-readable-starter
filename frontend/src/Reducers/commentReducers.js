@@ -3,7 +3,6 @@ import { DELETE_POST } from '../Actions/actionTypes';
 
 export function comments(state = {}, action) {
     switch (action.type) {
-
         case FETCH_COMMENTS:
             return action.comments;
 

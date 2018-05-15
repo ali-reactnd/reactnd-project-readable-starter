@@ -22,12 +22,10 @@ export class Content {
         this.author = author;
     }
 
-    remove(){this.deleted = true;}
-
-    upVote(){this.voteScore += 1;}
-
-    downVote(){this.voteScore -= 1;}
-}
+    remove(){ this.deleted = true; }
+    upVote(){ this.voteScore += 1; }
+    downVote(){ this.voteScore -= 1; }
+} 
 
 export class Post extends Content {
     constructor(id, timestamp, title, body, author, category, voteScore, deleted, commentCount){
@@ -72,8 +70,4 @@ export class ContentFactory {
     static makeNewComment(parentId, body, author) {
         return new Comment(this.genUniqueID(), parentId, this.genTimeStamp(), body, author, this.initVoteScore(), this.initDeleted(), false);
     }
-
 }
-
-
-

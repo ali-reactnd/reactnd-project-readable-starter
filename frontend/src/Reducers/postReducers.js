@@ -4,7 +4,6 @@ import { ADD_COMMENT, DELETE_COMMENT } from '../Actions/actionTypes';
 // The combineReducers method will send a slice of state (i.e. state.posts) to this reducer
 export function posts(state = {}, action) {
     switch (action.type) {
-
         case FETCH_POSTS:
             return action.posts;
 
