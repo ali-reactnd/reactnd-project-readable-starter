@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { classToPlain } from "class-transformer";
 import { ContentFactory } from '../Model/Model';
-import ContentForm from '../Components/ContentForm'
+import ContentForm from '../Components/ContentForm';
 
 const CreateView = (props) => {
-
+    
     let category = props.defaultCategory;
 
     return (

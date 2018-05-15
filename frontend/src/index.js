@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'semantic-ui-css/semantic.min.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './Store/store';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
     <Provider store={store}>

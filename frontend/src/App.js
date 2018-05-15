@@ -16,31 +16,33 @@ class App extends Component {
     const { dispatch } = this.props
     dispatch(fetchCategories());
     dispatch(fetchPosts());
+    // We don't fetch the comments here.
+    // We fetch the comments when we select a post and switch to PostDetailView
   }
 
   render() {
-
       const { categories, posts, comments } = this.props;
 
       return (
           <div >
               <PageHeader title="Readable" />
-
               <Switch>
-                  <Route exact path='/' render={ props=> 
-                    <DefaultView {...props} categories={categories} posts={posts}/> }  
-                  />
-                  <Route path='/create' render={(props)=> <CreateView  />} />
-                  <Route path='/edit' render={(props)=> <EditView  />} />
+                  <Route exact path='/' render={ props => 
+                    <DefaultView {...props} categories={categories} posts={posts}/>  
+                  }/>
+                  <Route path='/create' render={ props => 
+                    <CreateView  />
+                  }/>
+                  <Route path='/edit' render={ props => 
+                    <EditView  />
+                  }/>
                   <Route exact path='/:category' render={ props =>
-                    <CategoryView {...props} categories={categories} posts={posts} />}
-                  />
-                  <Route exact path='/:category/:post_id' render={(props)=>
-                    <PostDetailView {...props} posts={posts} comments={comments}/>}
-                  />
-
+                    <CategoryView {...props} categories={categories} posts={posts} />
+                  }/>
+                  <Route exact path='/:category/:post_id' render={ props =>
+                    <PostDetailView {...props} posts={posts} comments={comments}/>
+                  }/>
               </Switch>
-
               <Header as='h6' textAlign='center'>Copyright: Ali M @ 2018</Header>
           </div>
       );

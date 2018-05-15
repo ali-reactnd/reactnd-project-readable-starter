@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { withRouter  } from 'react-router-dom';
+import { Grid, Header } from 'semantic-ui-react';
+import { fetchComments } from "../Actions/AsyncActionCreators/fetchActions";
 import Content from '../Components/Content';
 import ContentsList from '../Components/ContentsList';
 import NotFound from '../Components/NotFound';
 import Navigation from '../Components/Navigation';
-import { Grid, Header } from 'semantic-ui-react'
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { withRouter  } from 'react-router-dom';
-import { fetchComments } from "../Actions/AsyncActionCreators/fetchActions";
 import AddNewContentLink from '../Components/AddNewContentLink';
 
 class PostDetailView extends Component {
@@ -27,7 +27,6 @@ class PostDetailView extends Component {
     }
 
     render() {
-
         const { posts, comments } = this.props;
         let post = posts.find(p=>p.id===this.state.postId);
      
@@ -47,8 +46,31 @@ class PostDetailView extends Component {
 }
 
 PostDetailView.propTypes = {
-    posts: PropTypes.array.isRequired,
-    comments : PropTypes.array.isRequired
+    posts: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            timestamp: PropTypes.number.isRequired,
+            title: PropTypes.string,
+            body: PropTypes.string.isRequired,
+            author: PropTypes.string.isRequired,
+            category: PropTypes.string,
+            voteScore: PropTypes.number.isRequired,
+            commentCount: PropTypes.number,
+            deleted: PropTypes.bool.isRequired
+        })
+    ).isRequired,
+    comments : PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            timestamp: PropTypes.number.isRequired,
+            body: PropTypes.string.isRequired,
+            author: PropTypes.string.isRequired,
+            voteScore: PropTypes.number.isRequired,
+            deleted: PropTypes.bool.isRequired,
+            parentDeleted: PropTypes.bool.isRequired,
+            parentId: PropTypes.string.isRequired
+        })
+    ).isRequired
 };
 
 function mapDispatchToProps(dispatch) {
