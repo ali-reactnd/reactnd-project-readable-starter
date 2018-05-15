@@ -1,5 +1,5 @@
-import {fetchWrapper, HEADER, BASE_URL} from '../fetchWrapper';
-import {VOTE_POST, VOTE_COMMENT} from '../actionTypes';
+import { fetchWrapper, HEADER, BASE_URL } from '../fetchWrapper';
+import { VOTE_POST, VOTE_COMMENT } from '../actionTypes';
 
 export function votePost(postId, option){
     return function (dispatch) {

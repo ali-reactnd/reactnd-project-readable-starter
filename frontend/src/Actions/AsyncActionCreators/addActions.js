@@ -1,5 +1,5 @@
-import {fetchWrapper, HEADER, BASE_URL} from '../fetchWrapper';
-import {ADD_POST, ADD_COMMENT} from '../actionTypes';
+import { fetchWrapper, HEADER, BASE_URL } from '../fetchWrapper';
+import { ADD_POST, ADD_COMMENT } from '../actionTypes';
 
 export function addPost(post) {
     return function (dispatch) {
@@ -7,8 +7,6 @@ export function addPost(post) {
         .then(result =>  dispatch({ type:  ADD_POST, post }))
     }
 }
-
-
 
 export function addComment(comment) {
     return function (dispatch) {

@@ -1,5 +1,5 @@
-import {fetchWrapper, HEADER, BASE_URL} from '../fetchWrapper';
-import {DELETE_POST, DELETE_COMMENT} from '../actionTypes';
+import { fetchWrapper, HEADER, BASE_URL } from '../fetchWrapper';
+import { DELETE_POST, DELETE_COMMENT } from '../actionTypes';
 
 export function deletePost(postId) {
     return function (dispatch) {
