@@ -1,22 +1,36 @@
-# Readable API Server
+# Readable APP
 
-This is the starter project for the final assessment project for Udacity's Redux course where you will build a content and comment web app. Users will be able to post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments. Users will also be able to edit and delete posts and comments.
+Readable is a simple *content* and *comment* web application. Users will be able to 
+post content to predefined categories, comment on their posts and others, and vote on 
+post and comments. User's will also be able to edit or delete posts and comments. 
 
-This repository includes the code for the backend API Server that you'll use to develop and interact with the front-end portion of the project.
+This repository includes the code for the front-end as well as the backend 
+API Server that interacts with the front-end. 
 
-## Start Developing
-
-To get started developing right away:
+To get started:
 
 * Install and start the API server
     - `cd api-server`
     - `npm install`
     - `node server`
-* In another terminal window, use Create React App to scaffold out the front-end
-    - `create-react-app frontend`
+* In another terminal window, install and run the front-end
     - `cd frontend`
+    - `npm install`
     - `npm start`
+    
+## Notes
+1. The application is anonymous, with no *authentication* or *authorization*. 
+There are no user objects, and comments and posts accept any username/name for creating and editing.
 
-## API Server
-
+2. The server supposrts a small, fixed number of categories that user can put posts into. 
+The server does not have methods for creating/modifying/deleting these categories. 
+If you wish to add to the categories, simply add your desired object to the Array `categories.js` 
+in the provided server. 
 Information about the API server and how to use it can be found in its [README file](api-server/README.md).
+
+
+## Contributing
+
+This is my submission for the final assessment project for Udacity's Redux 
+Fundamentals course, developed by [React Training](https://reacttraining.com).
+Therefore, I will not accept pull requests.
