@@ -31,7 +31,7 @@ class PostDetailView extends Component {
         let post = posts.find(p=>p.id===this.state.postId);
      
         return(
-            post.deleted? <NotFound /> :
+            (!post || post.deleted) ? <NotFound /> :
                 <div>
                     <Grid centered>
                         <Navigation />
